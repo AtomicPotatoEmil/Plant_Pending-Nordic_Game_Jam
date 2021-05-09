@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sowing_seeds.wav-f59f53e52bb8767a86127d3b83ea3102.sample"
+
+[deps]
+
+source_file="res://Plants/Common/Sounds/sowing_seeds.wav"
+dest_files=[ "res://.import/sowing_seeds.wav-f59f53e52bb8767a86127d3b83ea3102.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

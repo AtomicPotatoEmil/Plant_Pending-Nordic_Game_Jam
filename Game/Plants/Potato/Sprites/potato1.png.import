@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/farnerjim2.png-d88e905907971ff17956d8d34094db47.stex"
+path="res://.import/potato1.png-be237f6b3be2b519865b04bfef1f8356.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Sprites/farnerjim2.png"
-dest_files=[ "res://.import/farnerjim2.png-d88e905907971ff17956d8d34094db47.stex" ]
+source_file="res://Plants/Potato/Sprites/potato1.png"
+dest_files=[ "res://.import/potato1.png-be237f6b3be2b519865b04bfef1f8356.stex" ]
 
 [params]
 

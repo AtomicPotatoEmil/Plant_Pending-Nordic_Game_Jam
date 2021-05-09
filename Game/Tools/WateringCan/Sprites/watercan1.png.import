@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/farnerjim1.png-1ee7ddd6df5ee716d0dccc861f944e2b.stex"
+path="res://.import/watercan1.png-ba529354fe29f497021453815e3334e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Sprites/farnerjim1.png"
-dest_files=[ "res://.import/farnerjim1.png-1ee7ddd6df5ee716d0dccc861f944e2b.stex" ]
+source_file="res://Tools/WateringCan/Sprites/watercan1.png"
+dest_files=[ "res://.import/watercan1.png-ba529354fe29f497021453815e3334e0.stex" ]
 
 [params]
 

@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Soil/Sprites/FreeDirtHighlighted.png" type="Texture" id=1]
+[ext_resource path="res://Soil/Sprites/FreeDirt.png" type="Texture" id=2]
+[ext_resource path="res://Soil/Soil.gd" type="Script" id=3]
+[ext_resource path="res://Plants/Common/Sounds/sowing_seeds.wav" type="AudioStream" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "selected",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 20.1556
+
+[sub_resource type="Animation" id=3]
+resource_name = "default"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "thirsty"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Soil" type="Area2D"]
+scale = Vector2( 3, 3 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Anim" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="PlantContainer" type="Node2D" parent="."]
+
+[node name="AnimColor" type="AnimationPlayer" parent="."]
+anims/default = SubResource( 3 )
+anims/thirsty = SubResource( 4 )
+
+[node name="ThirstyTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="DyingTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="SeedPlantedSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="area_entered" from="." to="." method="_on_Soil_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Soil_area_exited"]
+[connection signal="timeout" from="ThirstyTimer" to="." method="_on_ThirstyTimer_timeout"]
+[connection signal="timeout" from="DyingTimer" to="." method="_on_DyingTimer_timeout"]
